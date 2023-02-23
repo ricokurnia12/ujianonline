@@ -4,3 +4,7 @@
 .terisi {
   background-color: green;
 }
+
+input[type='radio']:checked + label {
+  background-color: green;
+}

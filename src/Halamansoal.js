@@ -3,7 +3,7 @@ import './halamansoal.css';
 
 const Halamansoal = () => {
   const [soal, setSoal] = useState([]);
-  const [jawaban, setJawaban] = useState({});
+  const [jawaban, setJawaban] = useState();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answer, setAnswer] = useState([]);
 
@@ -20,17 +20,19 @@ const Halamansoal = () => {
 
   const handleJawabanChange = (event) => {
     const { name, value } = event.target;
-    setJawaban({ ...jawaban, [name]: value });
+    const newJawaban = [...jawaban];
+    newJawaban[currentQuestion] = value;
+    setJawaban(newJawaban);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const updatedAnswer = [...answer];
-    updatedAnswer[currentQuestion] =
-      jawaban[`question-${currentQuestion}`] || '';
-    setAnswer(updatedAnswer);
-    setJawaban({ ...jawaban, [`question-${currentQuestion}`]: '' });
-  };
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   const updatedAnswer = [...answer];
+  //   updatedAnswer[currentQuestion] =
+  //     jawaban[`question-${currentQuestion}`] || '';
+  //   setAnswer(updatedAnswer);
+  //   setJawaban({ ...jawaban, [`question-${currentQuestion}`]: '' });
+  // };
 
   const handlePrev = () => {
     setCurrentQuestion(currentQuestion - 1);
@@ -48,10 +50,24 @@ const Halamansoal = () => {
   }
 
   const handleClearAnswer = () => {
-    setJawaban({ ...jawaban, [`question-${currentQuestion}`]: '' });
-    const updatedAnswer = [...answer];
-    updatedAnswer[currentQuestion] = '';
-    setAnswer(updatedAnswer);
+    const newJawaban = [...jawaban];
+    newJawaban[currentQuestion] = '';
+    setJawaban(newJawaban);
+
+    const newAnswer = [...answer];
+    newAnswer[currentQuestion] = '';
+    setAnswer(newAnswer);
+
+    const nomorSoal = document.getElementsByClassName('nomor-soal');
+    for (let i = 0; i < nomorSoal.length; i++) {
+      if (newJawaban[i] !== '') {
+        nomorSoal[i].classList.add('terisi');
+        nomorSoal[i].classList.remove('kosong');
+      } else {
+        nomorSoal[i].classList.add('kosong');
+        nomorSoal[i].classList.remove('terisi');
+      }
+    }
   };
 
   return (
@@ -60,7 +76,7 @@ const Halamansoal = () => {
         <div className="row">
           <div className="col-6 kotak-soal">
             {soal.length > 0 && (
-              <form onSubmit={handleSubmit}>
+              <form>
                 <p>{soal[currentQuestion].petunjuk}</p>
                 <p>
                   <b>Jenis Tes:</b> {soal[currentQuestion].jenis}
@@ -73,14 +89,15 @@ const Halamansoal = () => {
                       <input
                         type="radio"
                         id={`option-${optionIndex}`}
-                        name={`question-${currentQuestion}`}
+                        name={`jawaban-${currentQuestion}`}
                         value={option}
                         checked={
-                          jawaban[`question-${currentQuestion}`] ===
+                          jawaban[`jawaban-${currentQuestion}`] ===
                           option
                         }
                         onChange={handleJawabanChange}
                       />
+
                       <label htmlFor={`option-${optionIndex}`}>
                         {option}
                       </label>
@@ -128,10 +145,8 @@ const Halamansoal = () => {
                 <div
                   key={quiz.id}
                   className={`nomor-soal ${
-                    jawaban[`question-${index}`] !== undefined
-                      ? 'terisi'
-                      : ''
-                  }`}
+                    jawaban[index] !== '' ? 'terisi' : 'kosong'
+                  } ${currentQuestion === index ? 'current' : ''}`}
                   onClick={() => setCurrentQuestion(index)}
                 >
                   {index + 1}
