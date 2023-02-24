@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import './halamansoal.css';
+import Navbar from './Navbar';
 
 const Halamansoal = () => {
   const [soal, setSoal] = useState([]);
   const [jawaban, setJawaban] = useState();
+  // useState Pagination
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answer, setAnswer] = useState([]);
 
   useEffect(() => {
     fetchData();
   }, []);
+
+  // Fetch Data dari API
 
   const fetchData = async () => {
     const response = await fetch('http://localhost:5000/soal');
@@ -18,6 +22,7 @@ const Halamansoal = () => {
     setJawaban(Array(data.length).fill(''));
   };
 
+  // Function untuk merubah jawaban
   const handleJawabanChange = (event) => {
     const { name, value } = event.target;
     const newJawaban = [...jawaban];
@@ -34,21 +39,24 @@ const Halamansoal = () => {
   //   setJawaban({ ...jawaban, [`question-${currentQuestion}`]: '' });
   // };
 
+  // function untuk ke halaman sebelumnya
   const handlePrev = () => {
     setCurrentQuestion(currentQuestion - 1);
   };
 
+  // function untuk ke halaman berikutnya
   const handleNext = () => {
     setCurrentQuestion(currentQuestion + 1);
   };
 
-  function isAnswered(questionIndex) {
-    return (
-      answer[currentQuestion] !== undefined &&
-      answer[currentQuestion] !== ''
-    );
-  }
+  // function isAnswered(questionIndex) {
+  //   return (
+  //     answer[currentQuestion] !== undefined &&
+  //     answer[currentQuestion] !== ''
+  //   );
+  // }
 
+  // Function untuk merubah jawaban
   const handleClearAnswer = () => {
     const newJawaban = [...jawaban];
     newJawaban[currentQuestion] = '';
@@ -72,46 +80,61 @@ const Halamansoal = () => {
 
   return (
     <div>
-      <div className="container">
+      <Navbar />
+      <div className="container mt-5">
         <div className="row">
-          <div className="col-6 kotak-soal">
+          <div className="mb-4 col-12 col-md-8 container-soal px-3 py-3 me-2 ">
             {soal.length > 0 && (
               <form>
-                <p>{soal[currentQuestion].petunjuk}</p>
-                <p>
-                  <b>Jenis Tes:</b> {soal[currentQuestion].jenis}
-                </p>
-                <b>Nomor {currentQuestion + 1} :</b>
-                <p>{soal[currentQuestion].pertanyaan}</p>
-                {soal[currentQuestion].jawaban.map(
-                  (option, optionIndex) => (
-                    <div key={optionIndex}>
-                      <input
-                        type="radio"
-                        id={`option-${optionIndex}`}
-                        name={`jawaban-${currentQuestion}`}
-                        value={option}
-                        checked={
-                          jawaban[`jawaban-${currentQuestion}`] ===
-                          option
-                        }
-                        onChange={handleJawabanChange}
-                      />
+                <div className="">
+                  <p>
+                    <b>Petunjuk : </b>
+                    {soal[currentQuestion].petunjuk}
+                  </p>
+                  <p>
+                    <b>Jenis Tes:</b> {soal[currentQuestion].jenis}
+                  </p>
+                  <b>Nomor {currentQuestion + 1} :</b>
 
-                      <label htmlFor={`option-${optionIndex}`}>
-                        {option}
-                      </label>
-                    </div>
-                  )
-                )}
-                <div className="button-group">
+                  <div className="kotak-soal px-2 py-2">
+                    <p>{soal[currentQuestion].pertanyaan}</p>
+                    {soal[currentQuestion].jawaban.map(
+                      (option, optionIndex) => (
+                        <div key={optionIndex}>
+                          <input
+                            type="radio"
+                            id={`option-${optionIndex}`}
+                            name={`jawaban-${currentQuestion}`}
+                            value={option}
+                            checked={
+                              jawaban[currentQuestion] === option
+                            }
+                            onChange={handleJawabanChange}
+                          />
+                          <label htmlFor={`option-${optionIndex}`}>
+                            {option}
+                          </label>
+                        </div>
+                      )
+                    )}
+                  </div>
+                </div>
+                <div className="d-flex justify-content-between align-items-center mt-2">
                   <button
                     type="button"
                     className="btn btn-primary"
                     onClick={handlePrev}
                     disabled={currentQuestion === 0}
                   >
-                    Previous
+                    Sebelumnya
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={handleClearAnswer}
+                    disabled={jawaban[currentQuestion] === ''}
+                  >
+                    Clear
                   </button>
                   <button
                     type="button"
@@ -119,40 +142,34 @@ const Halamansoal = () => {
                     onClick={handleNext}
                     disabled={currentQuestion === soal.length - 1}
                   >
-                    Next
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-primary"
-                    onClick={handleClearAnswer}
-                    disabled={
-                      jawaban[`question-${currentQuestion}`] === ''
-                    }
-                  >
-                    Clear
-                  </button>
-                  <button type="submit" className="btn btn-primary">
-                    Submit
+                    Selanjutnya
                   </button>
                 </div>
               </form>
             )}
           </div>
-          <div className="col-6">
+          <div className="mb-4 col-md-2 kotak-soal bg-light">
             <div className="panel-soal">
               <h5>Daftar Soal</h5>
-              {soal.map((quiz, index) => (
-                <div
-                  key={quiz.id}
-                  className={`nomor-soal ${
-                    jawaban[index] !== '' ? 'terisi' : 'kosong'
-                  } ${currentQuestion === index ? 'current' : ''}`}
-                  onClick={() => setCurrentQuestion(index)}
-                >
-                  {index + 1}
-                </div>
-              ))}
+              <div className="d-flex justify-content-evenly flex-wrap">
+                {soal.map((quiz, index) => (
+                  <div
+                    key={quiz.id}
+                    className={`nomor-soal ${
+                      jawaban[index] !== ''
+                        ? 'terisi text-center'
+                        : 'kosong text-center'
+                    } ${currentQuestion === index ? 'current' : ''}`}
+                    onClick={() => setCurrentQuestion(index)}
+                  >
+                    {index + 1}
+                  </div>
+                ))}
+              </div>
             </div>
+            <button type="submit" className="btn btn-primary">
+              Submit
+            </button>
           </div>
         </div>
       </div>
