@@ -1,7 +1,7 @@
 import React from 'react';
 import App from './App';
 import { Routes, Route } from 'react-router-dom';
-import Halamansoal from './Halamansoal';
+import Halamansoal from './TesTKD';
 
 
 const navigasi = () => {
