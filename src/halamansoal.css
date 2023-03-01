@@ -1,21 +1,20 @@
 .kotak-soal {
   border: 2px solid black;
+  box-sizing: border-box;
 }
 .nomor-soal.terisi {
   background-color: #28a745;
   color: #fff;
 }
 
-.nomor-soal{
+.nomor-soal {
   height: 30px;
   width: 30px;
   margin-right: 5px;
   margin-bottom: 5px;
-
 }
 
-
-.nomor-soal.kosong{
+.nomor-soal.kosong {
   background-color: grey;
   color: #fff;
 }

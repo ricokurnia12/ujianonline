@@ -8,18 +8,39 @@
       "jawaban": ["norr", "asosiatif", "danu"],
       "tipe_soal": "teks"
     },
-
     {
       "id": 2,
       "jenis": "Tes Sinonim",
       "petunjuk": "Masing­masing soal terdiri dari satu kata yang dicetak dengan huruf besar (huruf kapital) diikuti lima kemungkinan jawaban. Pilihlah satu jawaban yang mempunyai arti sama atau paling dekat dengan arti kata yang dicetak dengan huruf kapital.",
-      "pertanyaan": "https://imgix2.ruangguru.com/assets/miscellaneous/png_2raqhs_7670.PNG",
+      "pertanyaan": "INISIATIF =",
+      "jawaban": ["norr", "asosiatif", "danu"],
+      "tipe_soal": "teks"
+    },
+
+    {
+      "id": 3,
+      "jenis": "Tes Sinonim",
+      "petunjuk": "Masing­masing soal terdiri dari satu kata yang dicetak dengan huruf besar (huruf kapital) diikuti lima kemungkinan jawaban. Pilihlah satu jawaban yang mempunyai arti sama atau paling dekat dengan arti kata yang dicetak dengan huruf kapital.",
+      "pertanyaan": "https://res.cloudinary.com/dyhbjdod5/image/upload/v1677652147/tkd/Group_1000006264_x9jyr5.png",
       "jawaban": [
-        "https://blog-static.mamikos.com/wp-content/uploads/2022/01/Contoh-soal-psikotes-potongan-gambar-IST-dan-jawabannya-3.jpg",
-        "https://cdnwpedutorenews.gramedia.net/wp-content/uploads/2020/01/16152333/artikel-2-300x161-1.jpg",
-        "https://cdnwpedutorenews.gramedia.net/wp-content/uploads/2020/01/16152703/artikel-2.8.jpg",
-        "https://cdnwpedutorenews.gramedia.net/wp-content/uploads/2020/01/16152333/artikel-2-300x161-1.jpg",
-        "https://cdnwpedutorenews.gramedia.net/wp-content/uploads/2020/01/16152356/artikel-2.1.jpg"
+        "https://res.cloudinary.com/dyhbjdod5/image/upload/v1677652046/tkd/Group_1000006265_k1bg1s.png",
+        "https://res.cloudinary.com/dyhbjdod5/image/upload/v1677652058/tkd/Group_1000006266_qvylxh.png",
+        "https://res.cloudinary.com/dyhbjdod5/image/upload/v1677656004/tkd/Group_1000006267_3_rwhaci.png",
+        "https://res.cloudinary.com/dyhbjdod5/image/upload/v1677652070/tkd/Group_1000006268_gq1msf.png"
+      ],
+      "tipe_soal": "gambar"
+    },
+    {
+      "id": 4,
+      "jenis": "Tes Sinonim",
+      "petunjuk": "Masing­masing soal terdiri dari satu kata yang dicetak dengan huruf besar (huruf kapital) diikuti lima kemungkinan jawaban. Pilihlah satu jawaban yang mempunyai arti sama atau paling dekat dengan arti kata yang dicetak dengan huruf kapital.",
+      "pertanyaan": "",
+      "jawaban": [
+        "https://res.cloudinary.com/dyhbjdod5/image/upload/v1677652434/tkd/Group_1000006269_rv1qfy.png",
+        "https://res.cloudinary.com/dyhbjdod5/image/upload/v1677652427/tkd/Group_1000006270_aqvfon.png",
+        "https://res.cloudinary.com/dyhbjdod5/image/upload/v1677652421/tkd/Group_1000006271_gdecsv.png",
+        "https://res.cloudinary.com/dyhbjdod5/image/upload/v1677652416/tkd/Group_1000006272_nife1e.png",
+        "https://res.cloudinary.com/dyhbjdod5/image/upload/v1677652411/tkd/Group_1000006273_kypiqe.png"
       ],
       "tipe_soal": "gambar"
     }
