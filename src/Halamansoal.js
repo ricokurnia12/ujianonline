@@ -67,7 +67,7 @@ const Halamansoal = () => {
                 </p>
                 <b>Nomor {currentQuestion + 1} :</b>
                 <p>{soal[currentQuestion].pertanyaan}</p>
-                {soal[currentQuestion].jawaban.map(
+                {soal[currentQuestion].pilihan.jawaban.map(
                   (option, optionIndex) => (
                     <div key={optionIndex}>
                       <input
@@ -84,6 +84,17 @@ const Halamansoal = () => {
                       <label htmlFor={`option-${optionIndex}`}>
                         {option}
                       </label>
+                      {soal[currentQuestion].pilihan.jawabangambar[
+                        optionIndex
+                      ] && (
+                        <img
+                          src={
+                            soal[currentQuestion].pilihan
+                              .jawabangambar[optionIndex]
+                          }
+                          alt={jawaban}
+                        />
+                      )}
                     </div>
                   )
                 )}
