@@ -30,6 +30,7 @@ const Halamansoal = () => {
     setJawaban(newJawaban);
   };
 
+  // fUNCTIION SUBMIT JAWABAN
   // const handleSubmit = (event) => {
   //   event.preventDefault();
   //   const updatedAnswer = [...answer];
@@ -48,13 +49,6 @@ const Halamansoal = () => {
   const handleNext = () => {
     setCurrentQuestion(currentQuestion + 1);
   };
-
-  // function isAnswered(questionIndex) {
-  //   return (
-  //     answer[currentQuestion] !== undefined &&
-  //     answer[currentQuestion] !== ''
-  //   );
-  // }
 
   // Function untuk merubah jawaban
   const handleClearAnswer = () => {
@@ -97,7 +91,14 @@ const Halamansoal = () => {
                   <b>Nomor {currentQuestion + 1} :</b>
 
                   <div className="kotak-soal px-2 py-2">
-                    <p>{soal[currentQuestion].pertanyaan}</p>
+                    {soal[currentQuestion].tipe_soal === 'teks' ? (
+                      <p>{soal[currentQuestion].pertanyaan}</p>
+                    ) : (
+                      <img
+                        src={soal[currentQuestion].pertanyaan}
+                        alt="gambar soal"
+                      />
+                    )}
                     {soal[currentQuestion].jawaban.map(
                       (option, optionIndex) => (
                         <div key={optionIndex}>
@@ -112,7 +113,15 @@ const Halamansoal = () => {
                             onChange={handleJawabanChange}
                           />
                           <label htmlFor={`option-${optionIndex}`}>
-                            {option}
+                            {soal[currentQuestion].tipe_soal ===
+                            'teks' ? (
+                              option
+                            ) : (
+                              <img
+                                src={option}
+                                alt="gambar jawaban"
+                              />
+                            )}
                           </label>
                         </div>
                       )
