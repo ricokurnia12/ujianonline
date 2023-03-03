@@ -10,39 +10,73 @@
     },
     {
       "id": 2,
-      "jenis": "Tes Sinonim",
+      "jenis": "Tes Antonim",
       "petunjuk": "Masing­masing soal terdiri dari satu kata yang dicetak dengan huruf besar (huruf kapital) diikuti lima kemungkinan jawaban. Pilihlah satu jawaban yang mempunyai arti sama atau paling dekat dengan arti kata yang dicetak dengan huruf kapital.",
       "pertanyaan": "INISIATIF =",
       "jawaban": ["norr", "asosiatif", "danu"],
       "tipe_soal": "teks"
     },
-
     {
       "id": 3,
-      "jenis": "Tes Sinonim",
-      "petunjuk": "Masing­masing soal terdiri dari satu kata yang dicetak dengan huruf besar (huruf kapital) diikuti lima kemungkinan jawaban. Pilihlah satu jawaban yang mempunyai arti sama atau paling dekat dengan arti kata yang dicetak dengan huruf kapital.",
-      "pertanyaan": "https://res.cloudinary.com/dyhbjdod5/image/upload/v1677652147/tkd/Group_1000006264_x9jyr5.png",
+      "jenis": "Tes Analogi",
+      "petunjuk": "Masing­masing soal terdiri dari dua kata yang berpasangan diikuti lima kemungkinan jawaban. Pilihlah satu jawaban paling tepat yang mempunyai kesamaan hubungan dengan soal yang diberikan.",
+      "pertanyaan": "MUSIBAH ; BENCANA",
       "jawaban": [
-        "https://res.cloudinary.com/dyhbjdod5/image/upload/v1677652046/tkd/Group_1000006265_k1bg1s.png",
-        "https://res.cloudinary.com/dyhbjdod5/image/upload/v1677652058/tkd/Group_1000006266_qvylxh.png",
-        "https://res.cloudinary.com/dyhbjdod5/image/upload/v1677656004/tkd/Group_1000006267_3_rwhaci.png",
-        "https://res.cloudinary.com/dyhbjdod5/image/upload/v1677652070/tkd/Group_1000006268_gq1msf.png"
+        "Celaka ; terluka",
+        "Sakit ; sehat",
+        "Takut ; berani",
+        "Lentur ; elastis",
+        "Kaku ; baik"
       ],
-      "tipe_soal": "gambar"
+      "tipe_soal": "teks"
     },
     {
       "id": 4,
-      "jenis": "Tes Sinonim",
-      "petunjuk": "Masing­masing soal terdiri dari satu kata yang dicetak dengan huruf besar (huruf kapital) diikuti lima kemungkinan jawaban. Pilihlah satu jawaban yang mempunyai arti sama atau paling dekat dengan arti kata yang dicetak dengan huruf kapital.",
-      "pertanyaan": "",
+      "jenis": "Penalaran Analitis",
+      "petunjuk": "Soal di bawah ini terdiri dari pernyataan­pernyataan yang akan mengungkap kemampuan Anda dalam menyimpulkan suatu permasalahan. Setiap soal terdiri dari dua atau lebih pernyataan. Bacalah baik­baik pernyataan itu dan tentukan kesimpulan yang dapat ditarik dari pernyataan itu. Kemudian, pilihlah satu dari lima pilihan jawaban yang ada sebagai kesimpulan dari pernyataan itu.",
+      "pertanyaan": "Suatu keluarga mempunyai empat anak yang bergelar sarjana. A memperoleh gelar sarjana sesudah C, B memperoleh kesarjanaan sebelum D dan bersamaan dengan A. Urutan yang benar dalam perolehan kesarjanaan adalah ...",
       "jawaban": [
-        "https://res.cloudinary.com/dyhbjdod5/image/upload/v1677652434/tkd/Group_1000006269_rv1qfy.png",
-        "https://res.cloudinary.com/dyhbjdod5/image/upload/v1677652427/tkd/Group_1000006270_aqvfon.png",
-        "https://res.cloudinary.com/dyhbjdod5/image/upload/v1677652421/tkd/Group_1000006271_gdecsv.png",
-        "https://res.cloudinary.com/dyhbjdod5/image/upload/v1677652416/tkd/Group_1000006272_nife1e.png",
-        "https://res.cloudinary.com/dyhbjdod5/image/upload/v1677652411/tkd/Group_1000006273_kypiqe.png"
+        "D memperoleh gelar sarjana sebelum C",
+        "A memperoleh gear sarjana sesudah C",
+        "C memperoleh gelar sarjana sebelum D",
+        "A memperoleh gelar sarjana bersamaan dengan D",
+        "B memperoleh gelar sarjana sebelum C"
       ],
-      "tipe_soal": "gambar"
+      "tipe_soal": "teks"
+    },
+    {
+      "id": 5,
+      "jenis": "Tes Penalaran Logis",
+      "petunjuk": "Soal di bawah ini terdiri dari pernyataan­pernyataan yang akan mengungkap kemampuan Anda dalam menyimpulkan suatu permasalahan. Setiap soal terdiri dari dua atau lebih pernyataan. Bacalah baik­baik pernyataan itu dan tentukan kesimpulan yang dapat ditarik dari pernyataan itu. Kemudian, pilihlah satu dari lima pilihan jawaban yang ada sebagai kesimpulan dari pernyataan itu.",
+      "pertanyaan": "Tabungan A lebih banyak daripada tabungan B dan C. Tabungan B lebih banyak daripada tabungan C. Tabungan D lebih banyak daripada jumlah tabungan A, B, dan C.",
+      "jawaban": [
+        "C mempunyai tabungan paling sedikit",
+        "Yang mempunyai tabungan paling banyak adalah A",
+        "Tabungan A lebih banyak daripada tabungan D",
+        "Jumlah tabungan D dan C sama dengan jumlah tabungan A dan B",
+        "Tabungan D merupakan penjumlahan tabungan A, B, dan C"
+      ],
+      "tipe_soal": "teks"
+    },
+    {
+      "id": 6,
+      "jenis": "Tes Aritmatika",
+      "petunjuk": "Soal­soal aritmatika terdiri dari soal­soal hitungan sederhana, konsep aljabar, dan permasalahan aritmatika lainnya. Setiap soal disertai dengan lima pilihan jawaban. Jawablah setiap soal dengan cara memilih satu dari lima jawaban yang ada.",
+      "pertanyaan": "Berapakah nilai dari 4,353 : 0,003",
+      "jawaban": ["1.451", "1.455", "1.465", "1.471", "1.475"]
+    },
+    {
+      "id": 7,
+      "jenis": "Tes Deretan Angka",
+      "petunjuk": "Masing­masing soal terdiri dari suatu deretan angka yang belum selesai. Setiap soal disertai dengan lima pilihan jawaban yang ada di bawahnya. Angka­angka tersebut berderet mengikuti suatu prinsip tertentu. Pilihlah satu jawaban untuk menyelesaikan deretan angka itu, sesuai dengan prinsip yang mendasari.",
+      "pertanyaan": "3 5   8  12  17  23 ...   .....",
+      "jawaban": [
+        "30 dan 37",
+        "29 dan 36",
+        "29 dan 37",
+        "31 dan 39",
+        "30 dan 38"
+      ]
     }
   ]
 }
