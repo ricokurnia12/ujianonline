@@ -18,7 +18,7 @@ const Halamansoal = () => {
   // jANGAN DIHAPUS
   useEffect(() => {
     fetchData();
-  }, []);
+  },[]);
   // ------------------
 
   // useEffect(() => {
@@ -160,7 +160,7 @@ const Halamansoal = () => {
             maxWidth: '1200px',
           }}
         >
-          <div className="mb-4 col-12 col-md-8  container-soal px-3 py-3 me-4  ">
+          <div className="mb-4 col-12 col-lg-8  container-soal px-3 py-3 me-4  ">
             <div className="p-2 bg-red text-light position-absolute top-0 start-0">
               {' '}
               <b>Soal Nomor : {currentQuestion + 1} </b>
@@ -282,7 +282,7 @@ const Halamansoal = () => {
             <button onClick={handleSubmit}>Submit</button>
           </div>
 
-          <div className="mb-4 col-md-3 px-0 panel-soal bg-light">
+          <div className="mb-4 col-lg-3 px-0 panel-soal bg-light">
             <div className="header-panel text-light w-100 text-center bg-danger">
               <p>Daftar Soal</p>
               <div className="controlpanel">

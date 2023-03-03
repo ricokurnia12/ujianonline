@@ -4,9 +4,9 @@
 }
 
 .panel-soal {
-  min-width: 236px;
+  /* min-width: 236px; */
   position: relative;
-  max-height: fit-content;
+  /* max-height: 300px; */
   /* padding: 10px; */
 }
 .nomor-soal.terisi {
