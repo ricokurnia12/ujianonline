@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './halamansoal.css';
 import Navbar from './Navbar';
 import Button from 'react-bootstrap/Button';
-
+import { AiOutlineDown, AiOutlineUp } from 'react-icons/ai';
 import Modal from 'react-bootstrap/Modal';
 
 const Halamansoal = () => {
@@ -18,7 +18,7 @@ const Halamansoal = () => {
   // jANGAN DIHAPUS
   useEffect(() => {
     fetchData();
-  },[]);
+  }, []);
   // ------------------
 
   // useEffect(() => {
@@ -88,27 +88,25 @@ const Halamansoal = () => {
     return (
       <Modal
         {...props}
-        size="lg"
+        size="md"
         aria-labelledby="contained-modal-title-vcenter"
         centered
+        // style={{
+        //   width: '50%',
+        //   margin: 'auto',
+        // }}
       >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            Modal heading
-          </Modal.Title>
-        </Modal.Header>
         <Modal.Body>
           <h4>Centered Modal</h4>
-          <p>
-            Cras mattis consectetur purus sit amet fermentum. Cras
-            justo odio, dapibus ac facilisis in, egestas eget quam.
-            Morbi leo risus, porta ac consectetur ac, vestibulum at
-            eros.
-          </p>
+          <p>Apakah anda yakin ingin menyelesaikan ujian ?</p>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={props.onHide}>Close</Button>
-          <Button onClick={handleSubmit}>ya</Button>
+          <div className="d-flex justify-content-between">
+            <Button className="me-" onClick={props.onHide}>Kembali ke soal</Button>
+            <Button onClick={handleSubmit} className="btn btn-danger">
+              ya, Selesaikan Tes
+            </Button>
+          </div>
         </Modal.Footer>
       </Modal>
     );
@@ -161,13 +159,13 @@ const Halamansoal = () => {
           }}
         >
           <div className="mb-4 col-12 col-lg-8  container-soal px-3 py-3 me-4  ">
-            <div className="p-2 bg-red text-light position-absolute top-0 start-0">
+            <div className="p-2 bg-red text-light position-absolute top-0 start-0 mb-4">
               {' '}
               <b>Soal Nomor : {currentQuestion + 1} </b>
             </div>
             {soal.length > 0 && (
-              <form className="mt-5">
-                <div className="">
+              <form className="  d-inline">
+                <div className="mt-5">
                   <p>
                     <b>Petunjuk : </b>
                     {soal[currentQuestion].petunjuk}
@@ -233,7 +231,10 @@ const Halamansoal = () => {
                               }
                               onChange={handleJawabanChange}
                             />
-                            <label htmlFor={`option-${optionIndex}`}>
+                            <label
+                              className="text-wrap text-break"
+                              htmlFor={`option-${optionIndex}`}
+                            >
                               {soal[currentQuestion].jenis ===
                               'Tes Gambar' ? (
                                 <img
@@ -242,7 +243,7 @@ const Halamansoal = () => {
                                   className="gambar-jawaban"
                                 />
                               ) : (
-                                option
+                                <p className="text-break">{option}</p>
                               )}
                             </label>
                           </div>
@@ -251,10 +252,11 @@ const Halamansoal = () => {
                     </div>
                   </div>
                 </div>
-                <div className="d-flex justify-content-between align-items-center mt-2">
+
+                <div className=" d-flex justify-content-between d-sm-inline">
                   <button
                     type="button"
-                    className="btn btn-primary"
+                    className="btn btn-primary btn-sm me-2 mt-2"
                     onClick={handlePrev}
                     disabled={currentQuestion === 0}
                   >
@@ -262,15 +264,15 @@ const Halamansoal = () => {
                   </button>
                   <button
                     type="button"
-                    className="btn btn-primary"
+                    className="btn btn-primary btn-sm me-2 mt-2"
                     onClick={handleClearAnswer}
                     disabled={jawaban[currentQuestion] === ''}
                   >
-                    Clear
+                    Hapus
                   </button>
                   <button
                     type="button"
-                    className="btn btn-primary"
+                    className="btn btn-primary btn-sm me-2 mt-2"
                     onClick={handleNext}
                     disabled={currentQuestion === soal.length - 1}
                   >
@@ -279,29 +281,46 @@ const Halamansoal = () => {
                 </div>
               </form>
             )}
-            <button onClick={handleSubmit}>Submit</button>
+
+            <div className="float-end mt-2 ">
+              <button
+                className="btn btn-success ms-auto"
+                onClick={() => {
+                  setOpenModal(true);
+                }}
+              >
+                Submit Ujian
+              </button>
+              <MyVerticallyCenteredModal
+                show={openModal}
+                onHide={() => setOpenModal(false)}
+              />
+            </div>
           </div>
 
           <div className="mb-4 col-lg-3 px-0 panel-soal bg-light">
             <div className="header-panel text-light w-100 text-center bg-danger">
-              <p>Daftar Soal</p>
-              <div className="controlpanel">
+              <p>
+                Daftar Soal{' '}
                 {showPanel === true ? (
-                  <button onClick={controlPanel}>close</button>
+                  <AiOutlineUp
+                    onClick={controlPanel}
+                    style={{
+                      fontSize: '20px',
+                    }}
+                  />
                 ) : (
-                  <button
+                  <AiOutlineDown
                     onClick={() => {
                       setShowPanel(true);
                     }}
                     className="buttoncontrolpanel"
-                  >
-                    show
-                  </button>
+                  />
                 )}
-              </div>
+              </p>
             </div>
             <div className="panel-soal">
-              <div className="d-flex justify-content-evenly flex-wrap px-3">
+              <div className="d-flex flex-wrap ms-4  px-3">
                 {showPanel &&
                   soal.map((quiz, index) => (
                     <div
@@ -335,10 +354,6 @@ const Halamansoal = () => {
           {/* tes  */}
         </div>
       </div>
-      <MyVerticallyCenteredModal
-        show={openModal}
-        onHide={() => setOpenModal(false)}
-      />
     </div>
   );
 };

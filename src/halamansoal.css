@@ -6,6 +6,8 @@
 .panel-soal {
   /* min-width: 236px; */
   position: relative;
+  max-width: 834px;
+  margin: auto;
   /* max-height: 300px; */
   /* padding: 10px; */
 }
@@ -22,8 +24,8 @@
 }
 
 .nomor-soal {
-  height: 30px;
-  width: 30px;
+  height: 35px;
+  width: 35px;
   margin-right: 5px;
   margin-bottom: 5px;
   border: 1px solid #989393;
